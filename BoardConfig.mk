@@ -82,7 +82,7 @@ TARGET_SPECIFIC_HEADER_PATH := device/htc/protou/include
 BOARD_EGL_CFG := device/htc/protou/config/egl.cfg
 
 # Bluetooth/Wifi
--include device/htc/villec2/bcmdhd.mk
+-include device/htc/protou/bcmdhd.mk
 
 # Misc
 TARGET_BOOTANIMATION_PRELOAD := true
