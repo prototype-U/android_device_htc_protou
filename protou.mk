@@ -22,6 +22,19 @@ $(call inherit-product-if-exists, vendor/htc/protou/protou-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/htc/protou/overlay
 
+# Wifi
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
+
+# Bluetooth/wifi Firmware
+$(call inherit-product-if-exists, device/htc/protou/bcm_hcd.mk)
+
+# needed by wifi
+PRODUCT_COPY_FILES += \
+    device/htc/protou/wifi/calibration:system/etc/calibration
+
+# Bluetooth/wifi Firmware
+$(call inherit-product-if-exists, device/htc/protou/bcm_hcd.mk)
+
 # Video decoding
 PRODUCT_PACKAGES += \
     libmm-omxcore \
