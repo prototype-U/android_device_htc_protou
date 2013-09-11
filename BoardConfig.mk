@@ -116,10 +116,10 @@ TARGET_USES_ION := true #we have it on JB kernel :)
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_RECOVERY_FSTAB := device/htc/protou/recovery.fstab
-RECOVERY_FSTAB_VERSION = 1
+TARGET_RECOVERY_FSTAB := device/htc/protou/ramdisk/fstab.protou
+
 #incase the above one doesnt work then use the one given below and put # behind above one
-#RECOVERY_FSTAB_VERSION = 2 
+RECOVERY_FSTAB_VERSION = 2 
 
 # RIL
 BOARD_USE_NEW_LIBRIL_HTC := true
