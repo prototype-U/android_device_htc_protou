@@ -43,7 +43,7 @@ TARGET_BOOTLOADER_BOARD_NAME := protou
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
-# Kernel
+# Kernel (dont use the kernel built because it is incompatible with 4.4.3)
 TARGET_KERNEL_SOURCE := kernel/htc/protou
 TARGET_KERNEL_CONFIG := protou_defconfig
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.target_e
@@ -57,7 +57,7 @@ BOARD_PREBUILT_LIBAUDIO := false
 
 # Fix this up by examining /proc/mtd on a running device
 TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_BOOTIMAGE_PARTITION_SIZE := 4194304
+BOARD_BOOTIMAGE_PARTITION_SIZE := 419430400 #it will remove the large boot.img error
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 8909824
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1004535296
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1291845120
@@ -112,11 +112,14 @@ TARGET_QCOM_DISPLAY_VARIANT := legacy
 TARGET_NO_HW_OVERLAY := true
 TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
 
-TARGET_USES_ION := false
+TARGET_USES_ION := true #we have it on JB kernel :)
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_FSTAB := device/htc/protou/recovery.fstab
+RECOVERY_FSTAB_VERSION = 1
+#incase the above one doesnt work then use the one given below and put # behind above one
+#RECOVERY_FSTAB_VERSION = 2 
 
 # RIL
 BOARD_USE_NEW_LIBRIL_HTC := true
