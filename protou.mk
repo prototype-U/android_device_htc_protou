@@ -71,8 +71,7 @@ PRODUCT_PACKAGES += \
     
 # Camera
 PRODUCT_PACKAGES += \
-    camera.default \
-    libsurfaceflinger_client
+    camera.default
     
 # Hardware properties 
 PRODUCT_COPY_FILES += \
