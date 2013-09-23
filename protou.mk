@@ -158,6 +158,20 @@ PRODUCT_COPY_FILES += \
     device/htc/protou/prebuilt/etc/firmware/BCM4330B1_002.001.003.0833.0845.hcd:system/etc/firmware/BCM4330B1_002.001.003.0833.0845.hcd \
     device/htc/protou/prebuilt/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw
 
+# Adreno
+PRODUCT_COPY_FILES += \
+device/htc/protou/prebuilt/lib/libc2d2_z180.so:system/etc/lib/libc2d2_z180.so \
+device/htc/protou/prebuilt/lib/libC2D2.so:system/etc/lib/libC2D2.so \
+device/htc/protou/prebuilt/lib/libgsl.so:system/etc/lib/libgsl.so \
+device/htc/protou/prebuilt/lib/libOpenVG.so:system/etc/lib/libOpenVG.so \
+device/htc/protou/prebuilt/lib/libsc-a2xx.so:system/etc/lib/libsc-a2xx.so \
+device/htc/protou/prebuilt/lib/egl/eglsubAndroid.so:system/etc/lib/egl/eglsubAndroid.so \
+device/htc/protou/prebuilt/lib/egl/libEGL_adreno200.so:system/etc/lib/egl/libEGL_adreno200.so \
+device/htc/protou/prebuilt/lib/egl/libGLESv1_CM_adreno200.so:system/etc/lib/egl/libGLESv1_CM_adreno200.so \
+device/htc/protou/prebuilt/lib/egl/libGLESv2_adreno200.so:system/etc/lib/egl/libGLESv2_adreno200.so \
+device/htc/protou/prebuilt/lib/egl/libGLESv2S3D_adreno200.so:system/etc/lib/egl/libGLESv2S3D_adreno200.so \
+device/htc/protou/prebuilt/lib/egl/libq3dtools_adreno200.so:system/etc/lib/egl/libq3dtools_adreno200.so
+
 # Audio
 PRODUCT_COPY_FILES += \
     device/htc/protou/prebuilt/etc/AudioPreProcess.csv:system/etc/AudioPreProcess.csv \
