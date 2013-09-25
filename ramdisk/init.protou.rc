@@ -1,4 +1,4 @@
-import init.villec2.usb.rc
+import init.protou.usb.rc
 
 on early-init
     export EXTERNAL_STORAGE /storage/sdcard0
