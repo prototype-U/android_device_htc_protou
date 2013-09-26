@@ -173,6 +173,12 @@ on property:persist.sys.usb.config=adb
 on property:persist.sys.usb.config=adboff
       setprop sys.usb.config ${persist.sys.usb.config}
 
+on property:persist.sys.usb.config=mass_storage,adb
+      setprop persist.sys.usb.config adb
+
+on property:persist.sys.usb.config=mass_storage
+      setprop persist.sys.usb.config adboff
+
 on property:sys.usb.config=rndis
 #    write /sys/class/android_usb/android0/enable 0
 #    write /sys/class/android_usb/android0/idVendor 0bb4
@@ -265,17 +271,32 @@ on property:sys.usb.config=mtp,adb
     write /sys/devices/platform/android_usb/usb_function_switch 130
     setprop sys.usb.state ${sys.usb.config}
 
+#PC MODEM::modem+diag+serial+mtp+adb+mass_storage
 on property:sys.usb.config=mtp,modem,adb
     start adbd
-    write /sys/devices/platform/android_usb/usb_function_switch 4227
+    write /sys/devices/platform/android_usb/usb_function_switch 411
     setprop sys.usb.state ${sys.usb.config}
     setprop service.modem.enable 1
 
-#without adb
+#PC MODEM::modem+diag+serial+mtp+mass_storage
 on property:sys.usb.config=mtp,modem
-    write /sys/devices/platform/android_usb/usb_function_switch 4225
+    write /sys/devices/platform/android_usb/usb_function_switch 409
     setprop sys.usb.state ${sys.usb.config}
     setprop service.modem.enable 1
+
+#PC MODEM::modem+diag+serial+mtp+adb+mass_storage
+on property:sys.usb.config=mtp,modem,adb,diag
+    start adbd
+    write /sys/devices/platform/android_usb/usb_function_switch 411
+    setprop sys.usb.state ${sys.usb.config}
+    setprop service.modem.enable 1
+
+#PC MODEM::modem+diag+serial+mtp+mass_storage
+on property:sys.usb.config=mtp,modem,diag
+    write /sys/devices/platform/android_usb/usb_function_switch 409
+    setprop sys.usb.state ${sys.usb.config}
+    setprop service.modem.enable 1
+
 
 #will add mass_storage
 on property:sys.usb.config=mtp,diag,adb
@@ -543,6 +564,131 @@ on property:sys.usb.config=rndis,mtp,adb,mass_storage,diag,diag_mdm
 on property:sys.usb.config=rndis,mtp,mass_storage,diag,diag_mdm
     write /sys/devices/platform/android_usb/usb_function_switch 2189
     setprop sys.usb.state ${sys.usb.config}
+
+
+
+on property:sys.usb.config=rndis,mtp,adb,mass_storage,diag,modem
+    start adbd
+    write /sys/devices/platform/android_usb/usb_function_switch 399
+    setprop sys.usb.state ${sys.usb.config}
+
+#without adb
+on property:sys.usb.config=rndis,mtp,mass_storage,diag,modem
+    write /sys/devices/platform/android_usb/usb_function_switch 397
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=rndis,mtp,adb,mass_storage,diag,modem,diag_mdm
+    start adbd
+    write /sys/devices/platform/android_usb/usb_function_switch 2447
+    setprop sys.usb.state ${sys.usb.config}
+
+#without adb
+on property:sys.usb.config=rndis,mtp,mass_storage,diag,modem,diag_mdm
+    write /sys/devices/platform/android_usb/usb_function_switch 2445
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=rndis,mtp,adb,mass_storage,modem
+    start adbd
+    write /sys/devices/platform/android_usb/usb_function_switch 391
+    setprop sys.usb.state ${sys.usb.config}
+
+#without adb
+on property:sys.usb.config=rndis,mtp,mass_storage,modem
+    write /sys/devices/platform/android_usb/usb_function_switch 389
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=mtp,adb,mass_storage,diag,modem
+    start adbd
+    write /sys/devices/platform/android_usb/usb_function_switch 395
+    setprop sys.usb.state ${sys.usb.config}
+
+#without adb
+on property:sys.usb.config=mtp,mass_storage,diag,modem
+    write /sys/devices/platform/android_usb/usb_function_switch 393
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=mtp,adb,mass_storage,diag,modem,diag_mdm
+    start adbd
+    write /sys/devices/platform/android_usb/usb_function_switch 2443
+    setprop sys.usb.state ${sys.usb.config}
+
+#without adb
+on property:sys.usb.config=mtp,mass_storage,diag,modem,diag_mdm
+    write /sys/devices/platform/android_usb/usb_function_switch 2441
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=mtp,adb,mass_storage,modem
+    start adbd
+    write /sys/devices/platform/android_usb/usb_function_switch 387
+    setprop sys.usb.state ${sys.usb.config}
+
+#without adb
+on property:sys.usb.config=mtp,mass_storage,modem
+    write /sys/devices/platform/android_usb/usb_function_switch 385
+    setprop sys.usb.state ${sys.usb.config}
+
+
+
+on property:sys.usb.config=mass_storage,adb,modem
+    start adbd
+    write /sys/devices/platform/android_usb/usb_function_switch 259
+    setprop sys.usb.state ${sys.usb.config}
+
+#without adb
+on property:sys.usb.config=mass_storage,modem
+    write /sys/devices/platform/android_usb/usb_function_switch 257
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=mass_storage,adb,diag,modem
+    start adbd
+    write /sys/devices/platform/android_usb/usb_function_switch 267
+    setprop sys.usb.state ${sys.usb.config}
+
+#without adb
+on property:sys.usb.config=mass_storage,diag,modem
+    write /sys/devices/platform/android_usb/usb_function_switch 265
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=mass_storage,adb,diag,modem,diag_mdm
+    start adbd
+    write /sys/devices/platform/android_usb/usb_function_switch 2315
+    setprop sys.usb.state ${sys.usb.config}
+
+#without adb
+on property:sys.usb.config=mass_storage,diag,modem,diag_mdm
+    write /sys/devices/platform/android_usb/usb_function_switch 2313
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=rndid,adb,diag,modem,diag_mdm
+    start adbd
+    write /sys/devices/platform/android_usb/usb_function_switch 2318
+    setprop sys.usb.state ${sys.usb.config}
+
+#without adb
+on property:sys.usb.config=rndis,diag,modem,diag_mdm
+    write /sys/devices/platform/android_usb/usb_function_switch 2316
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=rndid,adb,diag,modem
+    start adbd
+    write /sys/devices/platform/android_usb/usb_function_switch 270
+    setprop sys.usb.state ${sys.usb.config}
+
+#without adb
+on property:sys.usb.config=rndis,diag,modem
+    write /sys/devices/platform/android_usb/usb_function_switch 268
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=rndid,adb,modem
+    start adbd
+    write /sys/devices/platform/android_usb/usb_function_switch 262
+    setprop sys.usb.state ${sys.usb.config}
+
+#without adb
+on property:sys.usb.config=rndis,modem
+    write /sys/devices/platform/android_usb/usb_function_switch 260
+    setprop sys.usb.state ${sys.usb.config}
+
 
 
 #`` HTC_IPT
