@@ -28,6 +28,9 @@ COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB
 COMMON_GLOBAL_CFLAGS += -DHTC_CAMERA_HARDWARE
 COMMON_GLOBAL_CFLAGS += -DMSMFB_METADATA_GET
 
+# Require bootloader version
+TARGET_BOARD_INFO_FILE ?= device/htc/protou/board-info.txt
+
 # Arch related defines and optimizations
 TARGET_BOARD_PLATFORM := msm7x27a
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200

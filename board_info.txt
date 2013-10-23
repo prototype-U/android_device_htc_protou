@@ -1,0 +1,1 @@
+require version-bootloader=1.25.0002
