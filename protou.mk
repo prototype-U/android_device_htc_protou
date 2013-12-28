@@ -35,21 +35,30 @@ PRODUCT_COPY_FILES += \
 # Bluetooth/wifi Firmware
 $(call inherit-product-if-exists, device/htc/protou/bcm_hcd.mk)
 
-# Video decoding
+# display HALS
+PRODUCT_PACKAGES += \
+    libgenlock \
+    liboverlay \
+    libtilerenderer \
+    gralloc.msm7x27a \
+    copybit.msm7x27a \
+    libqdMetaData
+
+# Power Hal
+PRODUCT_PACKAGES += \
+    power.msm7x27a
+
+# off-mode charging
+PRODUCT_PACKAGES += \
+    charger \
+    charger_res_images
+
+# Omx
 PRODUCT_PACKAGES += \
     libmm-omxcore \
-    libstagefrighthw \
     libOmxCore \
-    libI420colorconvert \
-    libdashplayer \
-    qcmediaplayer
-    
-# Graphics 
-PRODUCT_PACKAGES += \
-    copybit.msm7x27a \
-    gralloc.msm7x27a \
-    hwcomposer.msm7x27a \
-    libtilerenderer
+    libstagefrighthw \
+    libdashplayer
     
 # Audio
 PRODUCT_PACKAGES += \
@@ -67,7 +76,6 @@ PRODUCT_PACKAGES += \
     librpc \
     com.android.future.usb.accessory \
     libnetcmdiface \
-    power.msm7x27a
     
 # Camera
 PRODUCT_PACKAGES += \
