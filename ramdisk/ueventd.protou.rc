@@ -49,3 +49,6 @@
 /dev/msm_vidc_dec         0660  system       audio
 /dev/msm_vidc_dec_sec     0660  system       audio
 /dev/msm_vidc_enc         0660  system       audio
+
+# wifi
+/dev/rfkill               0660   root       wifi
