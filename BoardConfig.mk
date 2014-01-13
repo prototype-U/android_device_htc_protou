@@ -130,8 +130,8 @@ TARGET_USES_ION := true
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_RECOVERY_FSTAB := device/htc/protou/recovery.fstab
-
+TARGET_RECOVERY_FSTAB := device/htc/protou/ramdisk/fstab.protou
+RECOVERY_FSTAB_VERSION := 2
 # RIL
 BOARD_USE_NEW_LIBRIL_HTC := true
 BOARD_USES_LEGACY_RIL := true
